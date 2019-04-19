@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import Field from '../../../components/Field/Field';
+
 class Board extends Component {
 
     state = {
@@ -12,7 +14,7 @@ class Board extends Component {
 
     render() {
         let fields = [];
-        let outterFields = [];
+        var outterFields = [];
         for(let i = 0; i < this.state.fieldsNumber; i++) {
              fields.push('normal');                          
         }
@@ -25,8 +27,13 @@ class Board extends Component {
             fields[this.state.gameOverField[i] - 1] ='gameOver';
         }
 
-        fields.map(el => {
-            
+        fields.map((el, index) => {
+            outterFields.push(
+                <Field
+                type={el}
+                key={index}
+                />
+            )
         })
 
         console.log(fields);
@@ -34,7 +41,7 @@ class Board extends Component {
         return (
             <div>
                 Board
-
+                {outterFields}
             </div>
         )
     }

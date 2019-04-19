@@ -4,13 +4,13 @@ const Field = (props) => {
     var name;
 
     switch(props.type) {
-        case normal:
-            name = '';
+        case 'normal':
+            name = 'normal';
             break;
-        case win:
+        case 'win':
             name = 'Finish';
             break;
-        case gameOver:
+        case 'gameOver':
             name = 'Be careful';
             break;
     }
