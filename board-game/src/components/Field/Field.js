@@ -1,5 +1,7 @@
 import React from 'react';
 
+import GameOverField from './GameOverField/GameOverField';
+
 const Field = (props) => {
     var name;
 
@@ -11,7 +13,7 @@ const Field = (props) => {
             name = 'Finish';
             break;
         case 'gameOver':
-            name = 'Be careful';
+            name = <GameOverField />;
             break;
     }
     return (
