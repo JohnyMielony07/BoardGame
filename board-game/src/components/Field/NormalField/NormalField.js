@@ -1,12 +1,12 @@
 import React from 'react';
 
-const GameOverField = (props) => {
+const NormalField = (props) => {
     return (
         <div>
             {props.number}--
-            Game Over
+            Finish
         </div>
     )
 }
 
-export default GameOverField;
+export default NormalField;

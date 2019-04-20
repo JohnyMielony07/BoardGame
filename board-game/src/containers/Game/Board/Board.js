@@ -31,8 +31,9 @@ class Board extends Component {
             outterFields.push(
                 <Field
                 type={el}
-                key={index}
-                active={this.state.playerPosition === index ? '--active' : null}
+                key={index}                
+                active={this.state.playerPosition-1 === index ? '--active' : null}
+                number={index + 1}
                 />
             )
         })

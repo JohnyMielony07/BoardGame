@@ -1,19 +1,21 @@
 import React from 'react';
 
 import GameOverField from './GameOverField/GameOverField';
+import WinField from './WinField/WinField';
+import NormalField from './NormalField/NormalField';
 
 const Field = (props) => {
     var name;
 
     switch(props.type) {
         case 'normal':
-            name = 'normal';
+            name = <NormalField number={props.number}/>;;
             break;
         case 'win':
-            name = 'Finish';
+            name = <WinField number={props.number}/>;
             break;
         case 'gameOver':
-            name = <GameOverField />;
+            name = <GameOverField number={props.number} />;
             break;
     }
     return (
