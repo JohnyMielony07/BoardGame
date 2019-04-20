@@ -19,6 +19,7 @@ const Field = (props) => {
     return (
         <div>
             {name}
+            {props.active}
         </div>
     )
 }

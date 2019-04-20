@@ -6,7 +6,7 @@ class Board extends Component {
 
     state = {
         fieldsNumber: 20,
-        playerPosition: [1],
+        playerPosition: 1,
         winField: [20],
         gameOverField: [11],
         fields: []
@@ -32,9 +32,11 @@ class Board extends Component {
                 <Field
                 type={el}
                 key={index}
+                active={this.state.playerPosition === index ? '--active' : null}
                 />
             )
         })
+        
 
         console.log(fields);
 
