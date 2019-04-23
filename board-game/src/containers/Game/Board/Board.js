@@ -15,7 +15,7 @@ class Board extends Component {
         playerPosition: 11,
         winField: [20],
         backField: [19],
-        gameOverField: [11],
+        gameOverField: [12],
         fields: []
             }
 

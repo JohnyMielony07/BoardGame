@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import GameOverField from './GameOverField/GameOverField';
 import WinField from './WinField/WinField';
 import NormalField from './NormalField/NormalField';
+import BackField from './BackField/BackField';
 
 const Wrapper = styled.div`
     display: flex;
@@ -17,7 +18,7 @@ const Wrapper = styled.div`
     position: relative; 
     `;
 
-    const Pawn = styled.div`
+const Pawn = styled.div`
     display: ${({ active }) => active ? 'block' : 'none'};
     position: absolute;
     transform: translate(50%, 100%);
@@ -40,12 +41,15 @@ const Field = (props) => {
         case 'gameOver':
             name = <GameOverField name={props.name} number={props.number} />;
             break;
+        case 'back':
+            name = <BackField name={props.name} number={props.number} />;
+            break;
     }
     return (
         <Wrapper>
             {name}
             <Pawn active={props.active} />
-            
+
         </Wrapper>
     )
 }
