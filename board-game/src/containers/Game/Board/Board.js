@@ -12,11 +12,12 @@ class Board extends Component {
 
     state = {
         fieldsNumber: 20,
-        playerPosition: 1,
+        playerPosition: 11,
         winField: [20],
+        backField: [19],
         gameOverField: [11],
         fields: []
-    }
+            }
 
     render() {
         let fields = [];
@@ -33,12 +34,16 @@ class Board extends Component {
             fields[this.state.gameOverField[i] - 1] ='gameOver';
         }
 
+        for(let i = 0; i < this.state.backField.length; i++) {
+            fields[this.state.backField[i] - 1] ='back';
+        }
+
         fields.map((el, index) => {
             outterFields.push(
                 <Field
                 type={el}
                 key={index}                
-                active={this.state.playerPosition-1 === index ? '--active' : null}
+                active={this.state.playerPosition-1 === index ? 'active' : null}
                 number={index + 1}
                 />
             )

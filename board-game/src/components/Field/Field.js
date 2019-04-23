@@ -14,9 +14,18 @@ const Wrapper = styled.div`
     margin: .4em;
     border-radius: .3em;
     overflow: hidden;
+    position: relative; 
     `;
 
-
+    const Pawn = styled.div`
+    display: ${({ active }) => active ? 'block' : 'none'};
+    position: absolute;
+    transform: translate(50%, 100%);
+    width: 5em;
+    height: 5em;
+    background-color: green;
+    
+    `;
 
 const Field = (props) => {
     var name;
@@ -35,6 +44,7 @@ const Field = (props) => {
     return (
         <Wrapper>
             {name}
+            <Pawn active={props.active} />
             
         </Wrapper>
     )
