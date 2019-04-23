@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
+import styled from 'styled-components';
 
 import Field from '../../../components/Field/Field';
+
+const Wrapper = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    `;
 
 class Board extends Component {
 
@@ -42,10 +48,9 @@ class Board extends Component {
         console.log(fields);
 
         return (
-            <div>
-                Board
+            <Wrapper>
                 {outterFields}
-            </div>
+            </Wrapper>
         )
     }
 }
