@@ -4,7 +4,7 @@ const NormalField = (props) => {
     return (
         <div>
             {props.number}--
-            Finish
+            Normal
         </div>
     )
 }

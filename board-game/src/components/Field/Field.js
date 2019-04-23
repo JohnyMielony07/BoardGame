@@ -9,7 +9,7 @@ const Field = (props) => {
 
     switch(props.type) {
         case 'normal':
-            name = <NormalField number={props.number}/>;;
+            name = <NormalField number={props.number}/>;
             break;
         case 'win':
             name = <WinField number={props.number}/>;
