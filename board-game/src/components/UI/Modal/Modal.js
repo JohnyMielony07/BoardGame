@@ -27,7 +27,7 @@ const Modal = (props) => {
     let modalContent = null;
     switch (props.modalType) {
         case 'gameOver':
-            modalContent = <GameOverModal />
+            modalContent = <GameOverModal click={props.click} />
     }
     return (
         <Backdrop>

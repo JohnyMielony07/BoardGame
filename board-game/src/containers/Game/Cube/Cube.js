@@ -8,7 +8,8 @@ class Cube extends Component {
         console.log('wylosowana liczba to: ' + positionMove);
 
         if (positionMove + this.props.playerPos <= this.props.fieldsNumber) {
-            this.props.onAddedPosition(positionMove);
+            //this.props.onAddedPosition(positionMove);
+            this.props.onAddedPosition(11);
 
             // let moving = () => {
             //     if (positionMove + this.props.playerPos < this.props.fieldsNumber) {

@@ -49,7 +49,7 @@ class Board extends Component {
                 <Field
                     type={el}
                     key={index}
-                    active={this.state.playerPosition - 1 === index ? 'active' : null}
+                    active={this.props.playerPos - 1 === index ? 'active' : null}
                     number={index + 1}
                 />
             )
