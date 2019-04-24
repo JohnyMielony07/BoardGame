@@ -28,7 +28,7 @@ class Board extends Component {
         this.setState({playerPosition: this.props.playerPos})
         let fields = [];
         var outterFields = [];
-        for (let i = 0; i < this.state.fieldsNumber; i++) {
+        for (let i = 0; i < this.props.fieldsNumber; i++) {
             fields.push('normal');
         }
 
@@ -66,7 +66,8 @@ class Board extends Component {
 
 const mapStateToProps = state => {
     return {
-        playerPos: state.playerPosition
+        playerPos: state.playerPosition,
+        fieldsNumber: state.fieldsNumber
     };
 }
 
