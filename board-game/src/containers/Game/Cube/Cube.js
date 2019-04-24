@@ -9,7 +9,7 @@ class Cube extends Component {
 
         if (positionMove + this.props.playerPos <= this.props.fieldsNumber) {
             //this.props.onAddedPosition(positionMove);
-            this.props.onAddedPosition(11);
+            this.props.onAddedPosition(positionMove);
 
             // let moving = () => {
             //     if (positionMove + this.props.playerPos < this.props.fieldsNumber) {

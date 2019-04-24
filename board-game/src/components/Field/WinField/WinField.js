@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+
+import Modal from '../../UI/Modal/Modal';
 
 const Wrapper = styled.div`
     display: flex;
@@ -23,13 +26,36 @@ const Wrapper = styled.div`
     color: white;
     `;
 
-const WinField = (props) => {
-    return (
-        <Wrapper>            
-            <Number>{props.number}</Number>
-            <Name>Finish</Name>
-        </Wrapper>
-    )
+class WinField extends Component {
+    render() {
+        let modal = null
+
+        if (this.props.active) {
+            modal = <Modal modalType='win' click={() => { this.props.onSetPosition() }} />;
+        }
+
+        return (
+            <Wrapper>
+                {modal}     
+                <Number>{this.props.number}</Number>
+                <Name>Finish</Name>
+            </Wrapper>
+        )
+    }
+    
 }
 
-export default WinField;
+const mapStateToProps = state => {
+    return {
+        playerPos: state.playerPosition,
+        fieldsNumber: state.fieldsNumber
+    };
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onSetPosition: () => dispatch({ type: 'SET_POSITION', value: 1 }),
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(WinField);

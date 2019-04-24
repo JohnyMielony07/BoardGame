@@ -29,7 +29,7 @@ const Name = styled.p`
 class GameOverField extends Component {
 
     render() {
-        var modal = null
+        let modal = null
 
         if (this.props.active) {
             console.log('przegrana');

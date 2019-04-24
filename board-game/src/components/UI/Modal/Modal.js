@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import GameOverModal from './GameOverModal/GameOverModal';
+import WinModal from './WinModal/WinModal';
 
 const Backdrop = styled.div`
     position: fixed;
@@ -16,7 +17,7 @@ const Backdrop = styled.div`
     z-index: 2;
     `;
 
-    const ModalWrapper = styled.div`
+const ModalWrapper = styled.div`
     position: absolute;
     background-color: white;
     width: 20em;
@@ -28,6 +29,8 @@ const Modal = (props) => {
     switch (props.modalType) {
         case 'gameOver':
             modalContent = <GameOverModal click={props.click} />
+        case 'win':
+            modalContent = <WinModal click={props.click} />
     }
     return (
         <Backdrop>
