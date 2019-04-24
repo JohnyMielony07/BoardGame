@@ -1,11 +1,29 @@
-import React from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-const Cube = () => {
-    return (
-        <div>
-            <button>Go forward</button>
-        </div>
-    )
+class Cube extends Component {
+    render() {
+        console.log(this.props.playerPos);
+        return (
+            <div>
+                <p>{this.props.playerPos}</p>
+                <button onClick={this.props.onAddedPosition} >Go forward</button>
+            </div>
+        )
+    }
+
 }
 
-export default Cube;
+const mapStateToProps = state => {
+    return {
+        playerPos: state.playerPosition
+    };
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onAddedPosition: () => dispatch({ type: 'INCREMENT_POSITION' })
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cube);
