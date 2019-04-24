@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Modal from '../../UI/Modal/Modal';
+
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -24,8 +26,14 @@ const Wrapper = styled.div`
     `;
 
 const GameOverField = (props) => {
+    let modal = null;
+    if(props.active) {
+        modal = <Modal />;
+    }
+
     return (
         <Wrapper>
+            {modal}
             <Number>{props.number}</Number>
             <Name>Game Over</Name>
         </Wrapper>

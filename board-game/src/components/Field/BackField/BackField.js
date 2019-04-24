@@ -24,6 +24,9 @@ const Wrapper = styled.div`
     `;
 
 const BackField = (props) => {
+    if(props.active) {
+        alert('trololololo');
+    }
     return (
         <Wrapper>
             <Number>{props.number}</Number>

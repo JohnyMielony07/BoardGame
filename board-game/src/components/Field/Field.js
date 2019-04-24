@@ -36,13 +36,13 @@ const Field = (props) => {
             name = <NormalField name={props.name} number={props.number} />;
             break;
         case 'win':
-            name = <WinField name={props.name} number={props.number} />;
+            name = <WinField name={props.name} number={props.number} active={props.active} />;
             break;
         case 'gameOver':
-            name = <GameOverField name={props.name} number={props.number} />;
+            name = <GameOverField name={props.name} number={props.number} active={props.active} />;
             break;
         case 'back':
-            name = <BackField name={props.name} number={props.number} />;
+            name = <BackField name={props.name} number={props.number} active={props.active} />;
             break;
     }
     return (

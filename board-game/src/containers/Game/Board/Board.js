@@ -54,9 +54,7 @@ class Board extends Component {
                 />
             )
         })
-
-
-        console.log(fields);
+        
 
         return (
             <Wrapper>
@@ -66,17 +64,10 @@ class Board extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onAddedPosition: () => dispatch({ type: 'INCREMENT_POSITION' })
-    }
-};
-
-
 const mapStateToProps = state => {
     return {
         playerPos: state.playerPosition
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Board);
+export default connect(mapStateToProps)(Board);
