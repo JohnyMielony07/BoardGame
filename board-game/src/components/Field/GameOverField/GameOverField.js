@@ -28,7 +28,7 @@ const Wrapper = styled.div`
 const GameOverField = (props) => {
     let modal = null;
     if(props.active) {
-        modal = <Modal />;
+        modal = <Modal modalType='gameOver' />;
     }
 
     return (
