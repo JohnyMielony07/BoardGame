@@ -11,7 +11,6 @@ class Cube extends Component {
             </div>
         )
     }
-
 }
 
 const mapStateToProps = state => {
@@ -22,7 +21,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAddedPosition: () => dispatch({ type: 'INCREMENT_POSITION' })
+        onAddedPosition: () => dispatch({ type: 'ADD_POSITION', value: Math.floor(Math.random() * 6 + 1) })
     }
 };
 
