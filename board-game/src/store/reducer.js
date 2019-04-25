@@ -18,7 +18,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 rollsNumber: state.rollsNumber + 1,
                 allRolls: state.allRolls + action.value,
-                rollsAverage: (state.allRolls + action.value) / (state.rollsNumber + 1)
+                rollsAverage: Math.round((state.allRolls + action.value) / (state.rollsNumber + 1))
             }
         case 'RESTART':
             return {
