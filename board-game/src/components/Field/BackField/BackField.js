@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 const Wrapper = styled.div`
     display: flex;
@@ -9,7 +10,7 @@ const Wrapper = styled.div`
     background-color: #6B3308;
     `;
 
-    const Number = styled.p`
+const Number = styled.p`
     width: 100%;
     padding: .4em 0;
     background-color: #461E00;
@@ -17,22 +18,38 @@ const Wrapper = styled.div`
     font-size: 1.2em;
     font-weight: 500;
     `;
-    
-    const Name = styled.p`
+
+const Name = styled.p`
     font-size: 1.7em;
     color: white;
     `;
 
-const BackField = (props) => {
-    if(props.active) {
-        alert('trololololo');
+class BackField extends Component {
+
+    render() {
+        if (this.props.active) {
+            setTimeout(() => this.props.onLowerPosition(8), 500)
+        }
+        return (
+            <Wrapper>
+                <Number>{this.props.number}</Number>
+                <Name>Go to 11 field</Name>
+            </Wrapper>
+        )
     }
-    return (
-        <Wrapper>
-            <Number>{props.number}</Number>
-            <Name>Go to 11 field</Name>
-        </Wrapper>
-    )
 }
 
-export default BackField;
+const mapStateToProps = state => {
+    return {
+        playerPos: state.playerPosition,
+        fieldsNumber: state.fieldsNumber
+    };
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onLowerPosition: (move) => dispatch({ type: 'LOWER_POSITION', value: move })
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BackField);

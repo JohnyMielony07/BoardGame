@@ -1,6 +1,9 @@
 const initialState = {
     playerPosition: 1,
-    fieldsNumber: 20
+    fieldsNumber: 20,
+    rollsNumber: 0,
+    rollsAverage: 0,
+    allRolls: 0
 }
 
 const reducer = (state = initialState, action) => {
@@ -29,6 +32,13 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 playerPosition: action.value
+            }
+        case 'ADD_ROLL':
+            return {
+                ...state,
+                rollsNumber: state.rollsNumber + 1,
+                allRolls: state.allRolls + action.value,                
+                rollsAverage: (state.allRolls + action.value) / (state.rollsNumber + 1)
             }
 
     }
