@@ -22,7 +22,7 @@ const ModalWrapper = styled.div`
     position: absolute;
     background-color: white;
     width: 20em;
-    height: 10em;
+    padding: 2em;
     `;
 
 class Modal extends Component {
@@ -41,6 +41,11 @@ class Modal extends Component {
                     click={this.props.onRestart}
                     number={this.props.rollsNumber}
                     average={this.props.rollsAverage} />
+                break;
+            case 'roll':
+                modalContent = <div>
+                    Your throw: {this.props.diceRoll}
+                </div>
                 break;
         }
         return (
@@ -62,7 +67,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onRestart: () => dispatch({ type: 'RESTART' })        
+        onRestart: () => dispatch({ type: 'RESTART' })
     }
 };
 
