@@ -32,13 +32,13 @@ class Modal extends Component {
         switch (this.props.modalType) {
             case 'gameOver':
                 modalContent = <GameOverModal
-                    click={this.props.click}
+                    click={this.props.onRestart}
                     number={this.props.rollsNumber}
                     average={this.props.rollsAverage} />
                 break;
             case 'win':
                 modalContent = <WinModal
-                    click={this.props.click}
+                    click={this.props.onRestart}
                     number={this.props.rollsNumber}
                     average={this.props.rollsAverage} />
                 break;
@@ -48,11 +48,9 @@ class Modal extends Component {
                 <ModalWrapper>
                     {modalContent}
                 </ModalWrapper>
-
             </Backdrop>
         )
     }
-
 }
 
 const mapStateToProps = state => {
@@ -62,4 +60,10 @@ const mapStateToProps = state => {
     };
 }
 
-export default connect(mapStateToProps)(Modal);
+const mapDispatchToProps = dispatch => {
+    return {
+        onRestart: () => dispatch({ type: 'RESTART' })        
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);

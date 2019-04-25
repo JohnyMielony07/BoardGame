@@ -28,7 +28,7 @@ class BackField extends Component {
 
     render() {
         if (this.props.active) {
-            setTimeout(() => this.props.onLowerPosition(8), 500)
+            setTimeout(() => this.props.onSetPosition(11), 500)
         }
         return (
             <Wrapper>
@@ -48,7 +48,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onLowerPosition: (move) => dispatch({ type: 'LOWER_POSITION', value: move })
+        onSetPosition: (move) => dispatch({ type: 'SET_POSITION', value: move })
     }
 };
 

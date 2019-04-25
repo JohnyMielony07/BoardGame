@@ -24,8 +24,7 @@ const Pawn = styled.div`
     transform: translate(50%, 100%);
     width: 5em;
     height: 5em;
-    background-color: green;
-    
+    background-color: green;    
     `;
 
 const Field = (props) => {
@@ -45,11 +44,11 @@ const Field = (props) => {
             name = <BackField name={props.name} number={props.number} active={props.active} />;
             break;
     }
+    
     return (
         <Wrapper>
             {name}
             <Pawn active={props.active} />
-
         </Wrapper>
     )
 }

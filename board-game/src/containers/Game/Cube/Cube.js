@@ -4,16 +4,13 @@ import { connect } from 'react-redux';
 class Cube extends Component {
 
     onPositionChangeHandler = () => {
-        // let positionMove = Math.floor(Math.random() * 6 + 1);
-        let positionMove = 19;
-        console.log('wylosowana liczba to: ' + positionMove);
+        let positionMove = Math.floor(Math.random() * 6 + 1);
         this.props.onAddRoll(positionMove);
 
         if (positionMove + this.props.playerPos <= this.props.fieldsNumber) {
-            this.props.onAddedPosition(positionMove);
+            this.props.onSetPosition(positionMove + this.props.playerPos);
         } else {
-            const newPosition = this.props.fieldsNumber - (this.props.playerPos + positionMove - this.props.fieldsNumber)
-            console.log('nowa pozycja' + newPosition)
+            const newPosition = this.props.fieldsNumber - (this.props.playerPos + positionMove - this.props.fieldsNumber);
             this.props.onSetPosition(newPosition);
         }
     }
@@ -22,9 +19,6 @@ class Cube extends Component {
         console.log(this.props.playerPos);
         return (
             <div>
-                <p>ilosc rzutów: {this.props.rollsNumber}</p>
-                <p>srednia rzutów: {this.props.rollsAverage}</p>
-                <p>ostatni rzut: {this.props.playerPos}</p>
                 <button onClick={this.onPositionChangeHandler} >Roll dice</button>
             </div>
         )
@@ -42,10 +36,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAddedPosition: (move) => dispatch({ type: 'ADD_POSITION', value: move }),
-        onLowerPosition: (move) => dispatch({ type: 'LOWER_POSITION', value: move }),
         onSetPosition: (move) => dispatch({ type: 'SET_POSITION', value: move }),
-        onIncrementPosition: () => dispatch({ type: 'INCREMENT_POSITION' }),
         onAddRoll: (roll) => dispatch({ type: 'ADD_ROLL', value: roll })
     }
 };

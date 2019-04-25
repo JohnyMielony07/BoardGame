@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
 
 import Modal from '../../UI/Modal/Modal';
 
@@ -26,40 +25,20 @@ const Name = styled.p`
     color: white;
     `;
 
-class GameOverField extends Component {
+const GameOverField = (props) => {
+    let modal = null
 
-    render() {
-        let modal = null
-
-        if (this.props.active) {
-            console.log('przegrana');
-            modal = <Modal modalType='gameOver' click={() => { this.props.onSetPosition() }} />;
-        }
-
-        return (
-            <Wrapper>
-                {modal}
-                <Number>{this.props.number}</Number>
-                <Name>Game Over</Name>
-            </Wrapper>
-        )
+    if (props.active) {
+        modal = <Modal modalType='gameOver' />;
     }
 
+    return (
+        <Wrapper>
+            {modal}
+            <Number>{props.number}</Number>
+            <Name>Game Over</Name>
+        </Wrapper>
+    )
 }
 
-
-
-const mapStateToProps = state => {
-    return {
-        playerPos: state.playerPosition,
-        fieldsNumber: state.fieldsNumber
-    };
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        onSetPosition: () => dispatch({ type: 'SET_POSITION', value: 1 }),
-    }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(GameOverField);
+export default GameOverField;

@@ -25,36 +25,34 @@ class Board extends Component {
     }
 
     render() {
-        this.setState({playerPosition: this.props.playerPos})
-        let fields = [];
-        var outterFields = [];
+        this.setState({ playerPosition: this.props.playerPos })
+        let allFields = [];
+        let outterFields = [];
         for (let i = 0; i < this.props.fieldsNumber; i++) {
-            fields.push('normal');
+            allFields.push('normal');
         }
 
         for (let i = 0; i < this.state.winField.length; i++) {
-            fields[this.state.winField[i] - 1] = 'win';
+            allFields[this.state.winField[i] - 1] = 'win';
         }
 
         for (let i = 0; i < this.state.gameOverField.length; i++) {
-            fields[this.state.gameOverField[i] - 1] = 'gameOver';
+            allFields[this.state.gameOverField[i] - 1] = 'gameOver';
         }
 
         for (let i = 0; i < this.state.backField.length; i++) {
-            fields[this.state.backField[i] - 1] = 'back';
+            allFields[this.state.backField[i] - 1] = 'back';
         }
 
-        fields.map((el, index) => {
+        allFields.map((el, index) => {
             outterFields.push(
                 <Field
                     type={el}
                     key={index}
                     active={this.props.playerPos - 1 === index ? 'active' : null}
-                    number={index + 1}
-                />
+                    number={index + 1} />
             )
         })
-        
 
         return (
             <Wrapper>
