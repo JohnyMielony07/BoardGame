@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 class Cube extends Component {
 
     onPositionChangeHandler = () => {
-        let positionMove = Math.floor(Math.random() * 6 + 1);
+        // let positionMove = Math.floor(Math.random() * 6 + 1);
+        let positionMove = 19;
         console.log('wylosowana liczba to: ' + positionMove);
         this.props.onAddRoll(positionMove);
 
@@ -46,7 +47,6 @@ const mapDispatchToProps = dispatch => {
         onSetPosition: (move) => dispatch({ type: 'SET_POSITION', value: move }),
         onIncrementPosition: () => dispatch({ type: 'INCREMENT_POSITION' }),
         onAddRoll: (roll) => dispatch({ type: 'ADD_ROLL', value: roll })
-
     }
 };
 

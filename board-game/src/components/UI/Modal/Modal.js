@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 import GameOverModal from './GameOverModal/GameOverModal';
 import WinModal from './WinModal/WinModal';
@@ -24,24 +25,41 @@ const ModalWrapper = styled.div`
     height: 10em;
     `;
 
-const Modal = (props) => {
-    let modalContent = null;
-    switch (props.modalType) {
-        case 'gameOver':
-            modalContent = <GameOverModal click={props.click} />
-            break;
-        case 'win':
-            modalContent = <WinModal click={props.click} />
-            break;
-    }
-    return (
-        <Backdrop>
-            <ModalWrapper>
-                {modalContent}
-            </ModalWrapper>
+class Modal extends Component {
 
-        </Backdrop>
-    )
+    render() {
+        let modalContent = null;
+        switch (this.props.modalType) {
+            case 'gameOver':
+                modalContent = <GameOverModal
+                    click={this.props.click}
+                    number={this.props.rollsNumber}
+                    average={this.props.rollsAverage} />
+                break;
+            case 'win':
+                modalContent = <WinModal
+                    click={this.props.click}
+                    number={this.props.rollsNumber}
+                    average={this.props.rollsAverage} />
+                break;
+        }
+        return (
+            <Backdrop>
+                <ModalWrapper>
+                    {modalContent}
+                </ModalWrapper>
+
+            </Backdrop>
+        )
+    }
+
 }
 
-export default Modal;
+const mapStateToProps = state => {
+    return {
+        rollsNumber: state.rollsNumber,
+        rollsAverage: state.rollsAverage
+    };
+}
+
+export default connect(mapStateToProps)(Modal);
