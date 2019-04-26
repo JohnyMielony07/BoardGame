@@ -16,6 +16,7 @@ This project is a simple app simulate board game using React library.
 
 ## Technologies
 * React 16.8
+* Redux
 * CSS3
 * Styled components
 
