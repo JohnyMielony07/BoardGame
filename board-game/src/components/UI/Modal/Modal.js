@@ -23,7 +23,10 @@ const ModalWrapper = styled.div`
     background-color: white;
     width: 20em;
     padding: 2em;
+    font-size: 1.4em;
     `;
+
+    
 
 class Modal extends Component {
 
@@ -44,7 +47,7 @@ class Modal extends Component {
                 break;
             case 'roll':
                 modalContent = <div>
-                    Your throw: {this.props.diceRoll}
+                    Your throw: <b>{this.props.diceRoll}</b>
                 </div>
                 break;
         }
