@@ -26,7 +26,11 @@ const Wrapper = styled.div`
 const Pawn = styled.div`
     display: ${({ active }) => active ? 'block' : 'none'};
     position: absolute;
-    transform: translate(50%, 100%);
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 45%;
     width: 5em;
     height: 5em;
     z-index: 1;

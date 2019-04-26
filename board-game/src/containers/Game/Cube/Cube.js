@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import Modal from '../../../components/UI/Modal/Modal';
+
+const Button = styled.button`
+    margin: .5em auto;
+    background-color: #05423D;
+    padding: .3em 2em;;
+    color: white;
+    font-size: 1.7em;
+    border: none;
+    border-radius: .3em;
+    `;
 
 class Cube extends Component {
     state = {
@@ -46,7 +57,7 @@ class Cube extends Component {
 
         return (
             <div>
-                <button onClick={this.onPositionChangeHandler} >Roll dice</button>
+                <Button onClick={this.onPositionChangeHandler} >Roll dice</Button>
                 {modal}
             </div>
         )
