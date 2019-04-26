@@ -24,9 +24,7 @@ const ModalWrapper = styled.div`
     width: 20em;
     padding: 2em;
     font-size: 1.4em;
-    `;
-
-    
+    `;    
 
 class Modal extends Component {
 
