@@ -7,6 +7,7 @@ import Field from '../../../components/Field/Field';
 const Wrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     `;
 
 class Board extends Component {

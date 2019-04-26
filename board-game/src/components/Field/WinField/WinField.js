@@ -18,11 +18,20 @@ const Number = styled.p`
     color: white;
     font-size: 1.2em;
     font-weight: 500;
+
+    @media (max-width: 730px) {        
+        font-size: 1.1em;        
+    }
     `;
 
 const Name = styled.p`
     font-size: 1.7em;
+    margin: .4em .1em;
     color: white;
+
+    @media (max-width: 730px) {        
+        font-size: 1.4em;        
+    }
     `;
 
 const WinField = (props) => {

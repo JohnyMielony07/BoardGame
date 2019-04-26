@@ -9,13 +9,18 @@ import BackField from './BackField/BackField';
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    width: 10em;
-    height: 13em;
+    width: 8.5em;
+    height: 11em;
     border: .1em solid #30635F;
     margin: .4em;
     border-radius: .3em;
     overflow: hidden;
-    position: relative; 
+    position: relative;
+
+    @media (max-width: 730px) {
+        width: 7em;
+        height: 10em;
+    }
     `;
 
 const Pawn = styled.div`
