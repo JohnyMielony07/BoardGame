@@ -24,7 +24,11 @@ const Pawn = styled.div`
     transform: translate(50%, 100%);
     width: 5em;
     height: 5em;
-    background-color: green;    
+    z-index: 1;
+
+    img {
+        width: 100%;
+    }
     `;
 
 const Field = (props) => {
@@ -48,7 +52,7 @@ const Field = (props) => {
     return (
         <Wrapper>
             {name}
-            <Pawn active={props.active} />
+            <Pawn active={props.active} ><img src="./pawn.png" /></Pawn>
         </Wrapper>
     )
 }
